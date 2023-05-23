@@ -7,18 +7,15 @@ Download dependencies using
 npm install
 ```
 
-
 Start webpack
 ```
 npm run watch
 ```
 
-
 Start the development server
 ```
 npm run start
 ```
-
 
 Build your executable
 ```
