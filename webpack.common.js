@@ -2,26 +2,31 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/renderer/index.js',
+  entry: './src/renderer/index.tsx',
   devtool: 'inline-source-map',
   target: 'electron-renderer',
   module: {
     rules: [
+      // {
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: [[
+      //         '@babel/preset-env', {
+      //           targets: {
+      //             esmodules: true
+      //           }
+      //         }],
+      //         '@babel/preset-react']
+      //     }
+      //   }
+      // },
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [[
-              '@babel/preset-env', {
-                targets: {
-                  esmodules: true
-                }
-              }],
-              '@babel/preset-react']
-          }
-        }
       },
       {
         test: [/\.s[ac]ss$/i, /\.css$/i],
@@ -56,7 +61,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
     filename: 'app.js',
