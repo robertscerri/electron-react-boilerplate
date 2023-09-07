@@ -3,7 +3,7 @@
   "productName": "Electron React Boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "build/ts/main.js",
+  "main": "build/ts/main/main.js",
   "build": {
     "appId": "electronreactboilerplate",
     "files": [
@@ -14,11 +14,12 @@
     ]
   },
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-ts": ".\\node_modules\\.bin\\tsc",
+    "build-webpack": "webpack --config webpack.common.js",
     "watch": "webpack --config webpack.common.js --watch",
-    "start": "npm run build && electron .",
-    "dist": "electron-builder"
+    "clean": "(if exist build rmdir /s /q build) && (if exist dist rmdir /s /q dist)",
+    "start": "npm run build-ts && electron .",
+    "dist": "npm run clean && npm run build-webpack && npm run build-ts && electron-builder"
   },
   "keywords": [],
   "author": "yourname",
