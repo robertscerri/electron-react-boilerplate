@@ -29,8 +29,8 @@ function createWindow() {
 }
 
 if (isDev) {
-    require("electron-reload")(path.join(__dirname, "..", ".."), {
-        electron: path.join(__dirname, "..", "..", "node_modules", ".bin", "electron")
+    require("electron-reload")(path.join(__dirname, "..", "..", ".."), {
+        electron: path.join(__dirname, "..", "..", "..", "node_modules", ".bin", "electron")
     });
 }
 
